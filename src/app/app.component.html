@@ -1,45 +1,24 @@
-<h1>Registration</h1> 
-<hr>
-<div class="row g-3 align-items-center ">
-        <div class="col-auto"><label class="col-form-label">&nbsp;Username</label></div>
-        <div class="col-auto">
-          <input type="text" class="form-control" [(ngModel)] = "username" >
-        </div>
-</div>
-<br>
-<div class="row g-3 align-items-center">
-    <div class="col-auto"><label class="col-form-label">&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></div>
-    <div class="col-auto">
-      <input type="text" class="form-control" [(ngModel)] = "email" >
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top pt-2">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active"  [routerLink]="['/']" routerLinkActive="router-link-active"><span class="navbar-brand mb-0 h1" >SE University</span></a>
+        <a class="nav-item nav-link active"  [routerLink]="['/Students']" routerLinkActive="router-link-active">Students<!--<span class="sr-only">(current)</span>!--></a>
+        <a class="nav-item nav-link active"  [routerLink]="['/Courses']" routerLinkActive="router-link-active"     >Courses</a>
+        <a class="nav-item nav-link active"  [routerLink]="['/Enrollments']" routerLinkActive="router-link-active" >Enrollments</a>
+        <!--<a class="nav-item nav-link" href="#">Features</a>!-->
+      </div>
     </div>
-</div>
-<br>
-<div class="row g-3 align-items-center">
-    <div class="col-auto"><label class="col-form-label">&nbsp;Password</label></div>
-    <div class="col-auto">
-      <input type="text" class="form-control" [(ngModel)] = "password" >
-    </div>
-</div>
-<br>
-<button type="button" class="btn btn-primary" (click)="addUser()">Create Account</button>
-<hr>
+</nav>
+<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+  <div class="text-center my-5">
+      <img class="img-fluid rounded-circle mb-4" src="https://microbiome.uci.edu/files/2020/07/Grad-Student-Icon-150x150.png"
+      alt="Student Logo" />
+      <h1 class="text-white fs-3 fw-bolder">SE University</h1>
+  </div>
+</header>
 
-<table *ngIf="created" class="table table-striped">
-    <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Username</th>
-          <th scope="col">Email</th>
-          <th scope="col">Password</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{users.indexOf(user) + 1}}</td>
-            <td>{{user.Username}}</td>
-            <td>{{user.Email}}</td>
-            <td>{{user.Password}}</td>
-        </tr>
-           
-      </tbody>
-</table>
+<router-outlet></router-outlet>
+
+<footer class="py-5 bg-dark ">
+  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; SE University 2021</p></div>
+</footer>

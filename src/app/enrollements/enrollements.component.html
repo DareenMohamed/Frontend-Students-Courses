@@ -1,0 +1,60 @@
+<body>
+    <div class="text-center my-5 title">
+        <h1 class="text-black fs-3 fw-bolder">Enrollements</h1>
+    </div>
+    <table class="table enrollementsTable table-hover border bg-light ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Student</th>
+                <th scope="col">Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let enrollement of enrollements; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{enrollement.studentName}}</td>
+                <td>{{enrollement.courseName}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button *ngIf="!add" class="btn btn-primary mt-3 addEnrollement" type="submit" (click)="addEnrollementRequest()">+
+        Enroll Student to Course</button>
+    <div *ngIf="error" class="alert alert-danger" role="alert">{{errorAlert}}</div>
+    <div *ngIf="add" class="container border bg-light regEnrollement">
+        <button type="button" class="btn-close btn-danger" aria-label="Close" (click)="onClose()"></button>
+        <div class="row justify-content-center">
+            <div class="col-6  mt-3 mb-3">
+                <h3>Enroll Student to Course</h3>
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <div class="mb-3 mt-3">
+                        <label for="studentNameInput" class="form-label">Student</label>
+                        <input  type="text" 
+                                class="form-control" 
+                                id="studentNameInput" 
+                                [ngModel]="studentName.value |lowercase"
+                                name="studentName" 
+                                required 
+                                #studentName="ngModel"
+                                placeholder="john">
+                        <span class="error-text" *ngIf="!studentName.valid && studentName.touched">Student name is required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="courseNameInput" class="form-label">Course</label>
+                        <input  type="text" 
+                                class="form-control" 
+                                id="courseNameInput" 
+                                [ngModel]="courseName.value |lowercase"
+                                name="courseName" 
+                                required 
+                                #courseName="ngModel" 
+                                placeholder="maths">
+                        <span class="error-text" *ngIf="!courseName.valid && courseName.touched">Course name is required</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary " [disabled]="!f.valid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
