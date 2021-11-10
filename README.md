@@ -1,4 +1,8 @@
-# MyFirstProject
+# Frontend-Students-Courses
+# Hosted on : https://dareenmohamed.github.io/Frontend-Students-Courses/Students without the backend
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
